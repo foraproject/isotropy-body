@@ -1,5 +1,6 @@
+/* @flow */
+import type { KoaContextType } from "./flow/koa-types.js";
 import coBody from "co-body";
-import co from "co";
 
 /*
     Currently, this simply wraps co-body without doing anything.
@@ -7,7 +8,8 @@ import co from "co";
         a) Isotropy projects should only depend on approved libs initially
         b) We might want to change the underlying implementation later.
 */
-const asyncBody = async (ctx) => {
+
+const asyncBody = async (ctx: KoaContextType) : Object => {
     return await coBody(ctx);
 };
 

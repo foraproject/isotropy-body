@@ -13,6 +13,7 @@ describe('parse(req, opts)', () => {
                 app.use(async (ctx) => {
                     const body = await parse(ctx);
                     body.foo.bar.should.equal('baz');
+                    ctx.body = "Hello world";
                     resolve();
                 });
 
@@ -20,7 +21,7 @@ describe('parse(req, opts)', () => {
                     .post('/')
                     .type('form')
                     .send({ foo: { bar: 'baz' }})
-                    .end(function(){});
+                    .end(()=>{});
             });
         });
     });
@@ -39,7 +40,7 @@ describe('parse(req, opts)', () => {
                 request(app.listen())
                     .post('/')
                     .send({ foo: 'bar' })
-                    .end(function(){});
+                    .end(()=>{});
             });
         });
     });

@@ -12,8 +12,7 @@
         "url": "https://github.com/jeswin/isotropy-body.git"
     },
     "dependencies": {
-        "co-body": "*",
-        "co": "*"
+        "co-body": "*"
     },
     "devDependencies": {
         "supertest": "*",
@@ -29,5 +28,5 @@
     },
     "engines": { "node": ">= 0.11.9" },
     "keywords": ["koa", "co-body", "isomorphic"],
-    "license" : "GPL-3.0+"
+    "license" : "MIT"
 }
