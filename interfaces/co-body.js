@@ -1,16 +1,13 @@
 declare module "co-body" {
-  declare type KoaContextType = {
-    code: number;
-    redirect: (url: string) => void;
+  declare type IncomingMessage = {
+    headers: Object;
+    httpVersion: string;
     method: string;
-    path: string;
-    status: number;
-    body: string;
-    request: Object,
-    response: Object,
-    req: Object,
-    res: Object
+    trailers: Object;
+    setTimeout: (msecs: number, callback: Function) => void;
+    statusCode: number;
+    url: string;
   }
 
-  declare function exports(context: KoaContextType) : Promise<Object>
+  declare function exports(context: IncomingMessage) : Promise<Object>
 }
