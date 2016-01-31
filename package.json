@@ -1,7 +1,7 @@
 {
   "author": "Jeswin Kumar <jeswinpk@agilehead.com>",
   "name": "isotropy-body",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Isotropy wrapper around co-body.",
   "main": "dist/isotropy-body.js",
   "scripts": {
@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "supertest": "*",
-    "koa": "2.0.0-alpha.3",
     "babel-polyfill": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
