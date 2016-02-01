@@ -8,8 +8,8 @@ We do this because:
 a) Isotropy projects should only depend on approved libs initially
 b) We might want to change the underlying implementation later.
 */
-const asyncBody = async (req: IncomingMessage) : Object => {
-  return await coBody(req);
+const asyncBody = async (req: IncomingMessage, opts: Object) : Object => {
+  return await coBody(req, opts);
 };
 
 export default asyncBody;
