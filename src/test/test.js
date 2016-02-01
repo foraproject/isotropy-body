@@ -12,14 +12,16 @@ describe('parse(req, opts)', () => {
         parse(req).then((body) => {
           body.foo.bar.should.equal('baz');
           res.end();
-        });
+          resolve();
+        })
+        .catch((err) => reject(err));
       });
 
       return request(server)
         .post('/')
         .type('form')
         .send({ foo: { bar: 'baz' }})
-        .end(() => resolve());
+        .end();
     });
   });
 
@@ -29,13 +31,15 @@ describe('parse(req, opts)', () => {
         parse(req).then((body) => {
           body.should.eql({ foo: 'bar' });
           res.end();
-        });
+          resolve();
+        })
+        .catch((err) => reject(err));
       });
 
       return request(server)
       .post('/')
       .send({ foo: 'bar' })
-      .end(() => resolve());
+      .end();
     });
   });
 
@@ -45,14 +49,36 @@ describe('parse(req, opts)', () => {
         parse(req).then((body) => {
           body.should.eql('hello world');
           res.end();
-        });
+          resolve();
+        })
+        .catch((err) => reject(err));
       });
 
       return request(server)
       .post('/')
       .set('content-type', 'text/plain')
       .send('hello world')
-      .end(() => resolve());
+      .end();
+    });
+  });
+
+
+  it('throw an error with invalid content type', function() {
+    return new Promise((resolve, reject) => {
+      const server = http.createServer((req, res) => {
+        parse(req).then((body) => {
+          body.should.eql('hello world');
+          res.end();
+          reject("Must not parse invalid content-type");
+        })
+        .catch((err) => resolve());
+      });
+
+      return request(server)
+      .post('/')
+      .set('content-type', 'invalid/invalid')
+      .send('hello world')
+      .end();
     });
   });
 
