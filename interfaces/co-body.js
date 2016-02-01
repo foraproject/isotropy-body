@@ -3,5 +3,5 @@ declare module "co-body" {
     headers: Object;
   }
 
-  declare function exports(req: IncomingMessage, opts: Object) : Promise<Object>
+  declare function exports(req: IncomingMessage, opts?: Object) : Promise<Object>
 }
