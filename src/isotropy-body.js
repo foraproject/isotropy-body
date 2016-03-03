@@ -1,6 +1,6 @@
 /* @flow */
 import coBody from "co-body";
-import type { IncomingMessage } from "./flow/http-types";
+import type { IncomingMessage } from "isotropy-interfaces/node/http";
 
 /*
 Currently, this simply wraps co-body without doing anything.

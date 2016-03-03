@@ -1,7 +1,7 @@
 {
   "author": "Jeswin Kumar <jeswinpk@agilehead.com>",
   "name": "isotropy-body",
-  "version": "0.3.7",
+  "version": "0.3.9",
   "description": "Isotropy wrapper around co-body.",
   "main": "dist/isotropy-body.js",
   "scripts": {
@@ -9,10 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeswin/isotropy-body.git"
+    "url": "https://github.com/nodejam/isotropy-body.git"
   },
   "dependencies": {
-    "co-body": "*"
+    "co-body": "*",
+    "isotropy-interfaces": "*"
   },
   "devDependencies": {
     "supertest": "*",
